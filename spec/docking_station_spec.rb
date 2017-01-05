@@ -5,4 +5,5 @@ describe DockingStation do
   it { expect(subject.release_bike).to be_a Bike }
   it { expect(subject.release_bike.working?).to eq true }
   it { expect(subject).to respond_to('dock_bike')}
+  it { expect(subject.bike).to be_a Bike}
 end
