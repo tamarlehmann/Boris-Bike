@@ -31,4 +31,13 @@ describe DockingStation do
     expect{subject.dock_bike(Bike.new)}.to raise_error("No space available")
   end
 
+  it 'capacity has a default value of 20' do
+   expect(subject.capacity).to eq 20
+  end
+
+  it 'capacity can have a larger value than default' do
+    station = DockingStation.new(23)
+    expect(station.capacity).to eq 23
+  end
+
 end
