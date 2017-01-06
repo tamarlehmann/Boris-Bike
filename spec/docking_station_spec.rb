@@ -1,7 +1,9 @@
 require 'docking_station'
 
 describe DockingStation do
-  it { expect(subject).to respond_to('release_bike') }
+  it 'confirms that Docking Station respond to method release_bike' do
+    expect(subject).to respond_to('release_bike')
+  end
 
   it 'release a bike' do
     bike = Bike.new
@@ -9,10 +11,12 @@ describe DockingStation do
     expect(subject.release_bike).to eq bike
   end
 
-  # it { expect(subject.release_bike.working?).to eq true }
+  # it 'check if bike working' do
+  #   expect(subject.release_bike.working?).to eq true
+  # end
+
   it { expect(subject).to respond_to('dock_bike')}
   it { expect(subject.bike).to eq @bike}
-#   it { expect{raise "No bikes available"}.to raise_error("No bikes available") }
 
   it 'raise an error when no bikes available' do
     expect{subject.release_bike}.to raise_error("No bikes available")
@@ -22,10 +26,5 @@ describe DockingStation do
     bike = Bike.new
     expect(subject.dock_bike(bike)).to eq bike
   end
-
-
-  # it 'raises an error' do
-  #   expect{subject.release_bike(nil)}.to raise_error("No bikes available")
-  # end
 
 end
